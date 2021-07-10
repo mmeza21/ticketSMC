@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" uuid="310f58cd-db56-488c-b0a5-ce5d80ab455a">
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#FFFFFF" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     ticket.`id_ticket` AS ticket_id_ticket,
+     ticket.`nombre_ticket` AS ticket_nombre_ticket,
+     ticket.`asunto` AS ticket_asunto,
+     ticket.`prioridad` AS ticket_prioridad,
+     ticket.`fecha_creacion` AS ticket_fecha_creacion,
+     ticket.`tipo` AS ticket_tipo,
+     ticket.`rte` AS ticket_rte
+FROM
+     `ticket` ticket]]>
+	</queryString>
+	<field name="ticket_id_ticket" class="java.lang.Integer"/>
+	<field name="ticket_nombre_ticket" class="java.lang.String"/>
+	<field name="ticket_asunto" class="java.lang.String"/>
+	<field name="ticket_fecha_creacion" class="java.lang.String"/>
+	<group name="ticket_id_ticket">
+		<groupExpression><![CDATA[$F{ticket_id_ticket}]]></groupExpression>
+		<groupHeader>
+			<band height="40">
+				<textField>
+					<reportElement style="SubTitle" x="143" y="13" width="657" height="24" forecolor="#000000" uuid="7f6c936d-4c79-42e7-bb2a-a5dfb00b6aab"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{ticket_id_ticket}]]></textFieldExpression>
+				</textField>
+				<rectangle>
+					<reportElement mode="Opaque" x="97" y="13" width="36" height="24" forecolor="#CCCCCC" backcolor="#CCCCCC" uuid="122f03e1-4968-472e-b871-406b66fac667"/>
+				</rectangle>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="30">
+				<frame>
+					<reportElement mode="Opaque" x="652" y="0" width="150" height="30" forecolor="#CCCCCC" backcolor="#CCCCCC" uuid="247698ec-1a6c-4518-9446-ca9739e43f5c"/>
+				</frame>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band height="575" splitType="Stretch">
+			<image vAlign="Bottom">
+				<reportElement mode="Opaque" x="0" y="234" width="85" height="241" backcolor="#000000" uuid="ccdb81f2-0527-4f26-bc51-2d29966ae6be"/>
+				<imageExpression><![CDATA["silhouette2.jpg"]]></imageExpression>
+			</image>
+			<rectangle>
+				<reportElement x="-20" y="234" width="20" height="241" backcolor="#000000" uuid="f232f6e9-acdd-4dad-a447-b8d629ae02bc"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="475" width="105" height="100" backcolor="#666666" uuid="c77debe0-91f2-469b-ad69-68e888326fa1"/>
+				<textField>
+					<reportElement style="Column header" x="0" y="0" width="104" height="73" forecolor="#000000" uuid="ed048728-ccc1-4a6c-ae25-3b21b88030df"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="58" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="0" y="77" width="104" height="20" forecolor="#000000" uuid="535f61a8-958c-4f7a-89a9-51b4da11e49b"/>
+					<box leftPadding="4" rightPadding="4"/>
+					<textElement textAlignment="Center">
+						<font size="16" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement mode="Transparent" x="42" y="73" width="20" height="1" backcolor="#FFFFFF" uuid="0618d3b2-53db-446a-87f0-ded513cbcd32"/>
+				</line>
+			</frame>
+		</band>
+	</background>
+	<title>
+		<band height="104" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="0" y="0" width="802" height="67" uuid="089c6f21-8554-4988-8b3a-ca01ee6177ff"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="54" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[SILHOUETTE TITLE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="232" y="67" width="568" height="37" uuid="ae311d79-c15d-4430-80d2-164ff70f2b28"/>
+				<textElement textAlignment="Right">
+					<font size="26"/>
+				</textElement>
+				<text><![CDATA[Silhouette SubTitle]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="97" y="5" width="705" height="20" backcolor="#666666" uuid="a424c848-7766-404f-8c7d-289269256b8e"/>
+				<staticText>
+					<reportElement style="Column header" x="0" y="0" width="235" height="15" uuid="fe12fc21-ea90-47ed-bd82-dd191a4d923c"/>
+					<text><![CDATA[ticket_nombre_ticket]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="235" y="0" width="235" height="15" uuid="7cdfe39c-b806-42e6-81fb-597ad8051632"/>
+					<text><![CDATA[ticket_asunto]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="470" y="0" width="235" height="15" uuid="1ec7e2d2-6bad-42c8-9332-f1ce2f8ffec5"/>
+					<text><![CDATA[ticket_fecha_creacion]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<frame>
+				<reportElement x="97" y="1" width="705" height="15" uuid="9450f705-dc5d-45a3-9ea0-75b496f125b1"/>
+				<textField>
+					<reportElement style="Detail" x="0" y="0" width="235" height="15" uuid="9f539149-678f-4a81-b3e8-cc5daa3e6b83"/>
+					<textFieldExpression><![CDATA[$F{ticket_nombre_ticket}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="235" y="0" width="235" height="15" uuid="a4a78f9a-8809-4462-af79-c0bc29ec4b2d"/>
+					<textFieldExpression><![CDATA[$F{ticket_asunto}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="470" y="0" width="235" height="15" uuid="d636d561-31ea-476a-83d7-2a31b5ea0d2e"/>
+					<textFieldExpression><![CDATA[$F{ticket_fecha_creacion}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="97" y="16" width="705" height="1" uuid="f4d0e613-743a-4425-9f6b-2f3c812f7461"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="39" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="671" y="0" width="131" height="20" forecolor="#000000" uuid="5011a24e-03af-4090-a7d4-2792ea961c52"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="96" y="0" width="267" height="20" uuid="34cc9111-b2b6-44bd-9245-9d6ac97c9b06"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Silhouette Title Report]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
